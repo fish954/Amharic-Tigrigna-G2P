@@ -4,7 +4,6 @@ from typing import List
 import sys
 import os
 
-
 g2p_mapping = {
     "ሀ": "he", "ሁ": "hu", "ሂ": "hi", "ሃ": "ha", "ሄ": "hE", "ህ": "h", "ሆ": "ho",
     "ለ": "le", "ሉ": "lu", "ሊ": "li", "ላ": "la", "ሌ": "lE", "ል": "l", "ሎ": "lo",
