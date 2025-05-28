@@ -107,9 +107,3 @@ assets_dir = r'CP_Project\Experiment_2\assets2'
 amharic_file_path = os.path.join(assets_dir, 'amharic2.txt')
 tigrinya_file_path = os.path.join(assets_dir, 'tigrinya2.txt')
 
-amharic_freq_file = os.path.join(assets_dir, 'amharic_word_freq.txt')
-tigrigna_freq_file = os.path.join(assets_dir, 'tigrigna_word_freq.txt')
-overlap_score_file = os.path.join(assets_dir, 'word_overlap_score.txt')
-amharic_phoneme_file = os.path.join(assets_dir, 'amharic_phoneme_dist.txt')
-tigrigna_phoneme_file = os.path.join(assets_dir, 'tigrigna_phoneme_dist.txt')
-phoneme_overlap_score_file = os.path.join(assets_dir, 'phoneme_overlap_score.txt')
