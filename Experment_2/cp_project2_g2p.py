@@ -82,7 +82,12 @@ def word_overlap(freq1: Counter, freq2: Counter):
         return 0.0
     return len(common_words) / len(total_words)
 
-
+# Grapheme-to-phoneme conversion (space-separated for accurate phoneme splitting)
+def g2p(text: str):
+    phonemes = []
+    for char in text:
+        phonemes.append(g2p_mapping.get(char, char))
+    return ' '.join(phonemes)  # Use space to preserve phoneme boundaries
 
 
 
