@@ -106,3 +106,6 @@ def phoneme_overlap(dist1: Counter, dist2: Counter):
 
 # === File paths ===
 assets_dir = r'CP_Project\Experiment_1\assets'
+
+amharic_file_path = os.path.join(assets_dir, 'amharic1.txt')
+tigrinya_file_path = os.path.join(assets_dir, 'tigrinya1.txt')
