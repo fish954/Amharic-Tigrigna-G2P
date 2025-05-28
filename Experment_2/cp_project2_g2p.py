@@ -48,3 +48,30 @@ g2p_mapping = {
     "ዂ":"KWu", "ዅ": "KWi", "ዃ":"KWa", "ዄ":"KWE", "ዏ":"wWa", "ዟ":"zWa", "ዧ":"ZWa", "ዯ":"yWa",
     "ዷ":"dWa", "ዿ":"DWa", "ጇ":"jWa", "ጐ":"gWe", "ጕ":"gWu", "ጒ":"gWi", "ጓ":"gWa", "ጔ":"gWE", "ጏ":"gW",
     "ጧ":"TWa", "ጯ":"CWa", "ጷ":"PWa", "ጿ":"SWa", "ፏ":"fWa", "ፗ":"pWa", "ፇ":"'SWa", " ":" ", "\n":"\n"
+# Reads text from file
+def read_text_from_file(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return file.read()
+# Writes text to file
+def write_output_to_file(file_path, data):
+    with open(file_path, 'w', encoding='utf-8') as file:
+        file.write(data)
+# Formats Counter into string
+def counter_to_string(counter):
+    return '\n'.join([f'{k}:{v}' for k, v in counter.items()])
+# Clean and preprocess text
+def preprocess_text(text: str):
+    text = re.sub(r'[^\w\s]', ' ', text)  # Remove punctuation
+    text = text.strip()
+    return text
+# Word frequency
+def word_frequency(text: str):
+    words = text.split()
+    return Counter(words)
+# Overlap score for words
+def word_overlap(freq1: Counter, freq2: Counter):
+    common_words = set(freq1.keys()) & set(freq2.keys())
+    total_words = set(freq1.keys()) | set(freq2.keys())
+    if not total_words:
+        return 0.0
+    return len(common_words) / len(total_words)
