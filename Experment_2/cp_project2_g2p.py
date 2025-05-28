@@ -92,3 +92,11 @@ def g2p(text: str):
 # Count full phoneme units
 def phoneme_distribution(phoneme_str: str):
     return Counter(phoneme_str.split())
+
+# Overlap score for phonemes
+def phoneme_overlap(dist1: Counter, dist2: Counter):
+    common_phonemes = set(dist1.keys()) & set(dist2.keys())
+    total_phonemes = set(dist1.keys()) | set(dist2.keys())
+    if not total_phonemes:
+        return 0.0
+    return len(common_phonemes) / len(total_phonemes)
