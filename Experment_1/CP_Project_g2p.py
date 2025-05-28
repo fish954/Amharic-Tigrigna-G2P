@@ -92,7 +92,9 @@ def g2p(text: str):
         phonemes.append(g2p_mapping.get(char, char))
     return ' '.join(phonemes)  # Use space to preserve phoneme boundaries
 
-
+# Count full phoneme units
+def phoneme_distribution(phoneme_str: str):
+    return Counter(phoneme_str.split())
 
 
 
