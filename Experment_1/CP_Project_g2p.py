@@ -85,3 +85,35 @@ def word_overlap(freq1: Counter, freq2: Counter):
     if not total_words:
         return 0.0
     return len(common_words) / len(total_words)   
+
+# Grapheme-to-phoneme conversion (space-separated for accurate phoneme splitting)
+def g2p(text: str):
+    phonemes = []
+    for char in text:
+        phonemes.append(g2p_mapping.get(char, char))
+    return ' '.join(phonemes)  # Use space to preserve phoneme boundaries
+
+# Count full phoneme units
+def phoneme_distribution(phoneme_str: str):
+    return Counter(phoneme_str.split())
+
+# Overlap score for phonemes
+def phoneme_overlap(dist1: Counter, dist2: Counter):
+    common_phonemes = set(dist1.keys()) & set(dist2.keys())
+    total_phonemes = set(dist1.keys()) | set(dist2.keys())
+    if not total_phonemes:
+        return 0.0
+    return len(common_phonemes) / len(total_phonemes)
+
+# === File paths ===
+assets_dir = r'CP_Project\Experiment_1\assets'
+
+amharic_file_path = os.path.join(assets_dir, 'amharic1.txt')
+tigrinya_file_path = os.path.join(assets_dir, 'tigrinya1.txt')
+
+amharic_freq_file = os.path.join(assets_dir, 'amharic_word_freq.txt')
+tigrigna_freq_file = os.path.join(assets_dir, 'tigrigna_word_freq.txt')
+overlap_score_file = os.path.join(assets_dir, 'word_overlap_score.txt')
+amharic_phoneme_file = os.path.join(assets_dir, 'amharic_phoneme_dist.txt')
+tigrigna_phoneme_file = os.path.join(assets_dir, 'tigrigna_phoneme_dist.txt')
+phoneme_overlap_score_file = os.path.join(assets_dir, 'phoneme_overlap_score.txt')
