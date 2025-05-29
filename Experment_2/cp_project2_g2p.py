@@ -113,3 +113,21 @@ overlap_score_file = os.path.join(assets_dir, 'word_overlap_score.txt')
 amharic_phoneme_file = os.path.join(assets_dir, 'amharic_phoneme_dist.txt')
 tigrigna_phoneme_file = os.path.join(assets_dir, 'tigrigna_phoneme_dist.txt')
 phoneme_overlap_score_file = os.path.join(assets_dir, 'phoneme_overlap_score.txt')
+
+# === Main processing ===
+amharic_text = read_text_from_file(amharic_file_path)
+tigrigna_text = read_text_from_file(tigrinya_file_path)
+
+amharic_clean = preprocess_text(amharic_text)
+tigrigna_clean = preprocess_text(tigrigna_text)
+
+amharic_freq = word_frequency(amharic_clean)
+tigrigna_freq = word_frequency(tigrigna_clean)
+word_overlap_score = word_overlap(amharic_freq, tigrigna_freq)
+
+amharic_phonemes = g2p(amharic_clean)
+tigrigna_phonemes = g2p(tigrigna_clean)
+
+amharic_phoneme_dist = phoneme_distribution(amharic_phonemes)
+tigrigna_phoneme_dist = phoneme_distribution(tigrigna_phonemes)
+phoneme_overlap_score = phoneme_overlap(amharic_phoneme_dist, tigrigna_phoneme_dist)
