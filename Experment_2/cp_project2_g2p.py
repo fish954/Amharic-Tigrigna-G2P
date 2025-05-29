@@ -131,3 +131,22 @@ tigrigna_phonemes = g2p(tigrigna_clean)
 amharic_phoneme_dist = phoneme_distribution(amharic_phonemes)
 tigrigna_phoneme_dist = phoneme_distribution(tigrigna_phonemes)
 phoneme_overlap_score = phoneme_overlap(amharic_phoneme_dist, tigrigna_phoneme_dist)
+
+# === Output ===
+print("Amharic Word Frequency:", amharic_freq)
+write_output_to_file(amharic_freq_file, counter_to_string(amharic_freq))
+
+print("Tigrigna Word Frequency:", tigrigna_freq)
+write_output_to_file(tigrigna_freq_file, counter_to_string(tigrigna_freq))
+
+print("Word Overlap Score:", word_overlap_score)
+write_output_to_file(overlap_score_file, f'Word Overlap Score: {word_overlap_score:.4f}')
+
+print("Amharic Phoneme Distribution:", amharic_phoneme_dist)
+write_output_to_file(amharic_phoneme_file, counter_to_string(amharic_phoneme_dist))
+
+print("Tigrigna Phoneme Distribution:", tigrigna_phoneme_dist)
+write_output_to_file(tigrigna_phoneme_file, counter_to_string(tigrigna_phoneme_dist))
+
+print("Phoneme Overlap Score:", phoneme_overlap_score)
+write_output_to_file(phoneme_overlap_score_file, f'Phoneme Overlap Score: {phoneme_overlap_score:.4f}')
