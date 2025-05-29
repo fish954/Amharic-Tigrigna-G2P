@@ -117,6 +117,34 @@ amharic_phoneme_file = os.path.join(assets_dir, 'amharic_phoneme_dist.txt')
 tigrigna_phoneme_file = os.path.join(assets_dir, 'tigrigna_phoneme_dist.txt')
 phoneme_overlap_score_file = os.path.join(assets_dir, 'phoneme_overlap_score.txt')
 
+import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
+
+def plot_top_items(counter, title, color, top_n=10):
+    most_common = counter.most_common(top_n)
+    items, freqs = zip(*most_common)
+    plt.figure(figsize=(10, 6))
+    plt.bar(items, freqs, color=color)
+    plt.title(title)
+    plt.ylabel("Frequency")
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+def plot_overlap_scores(word_score, phoneme_score):
+    plt.figure(figsize=(6, 4))
+    labels = ['Word Overlap', 'Phoneme Overlap']
+    scores = [word_score, phoneme_score]
+    plt.bar(labels, scores, color=['skyblue', 'salmon'])
+    plt.ylim(0, 1)
+    plt.title('Overlap Scores (Normalized)')
+    plt.ylabel('Score')
+    for i, v in enumerate(scores):
+        plt.text(i, v + 0.02, f'{v:.2f}', ha='center')
+    plt.tight_layout()
+    plt.show()
+    
 # === Main processing ===
 amharic_text = read_text_from_file(amharic_file_path)
 tigrigna_text = read_text_from_file(tigrinya_file_path)
@@ -153,3 +181,12 @@ write_output_to_file(tigrigna_phoneme_file, counter_to_string(tigrigna_phoneme_d
 
 print("Phoneme Overlap Score:", phoneme_overlap_score)
 write_output_to_file(phoneme_overlap_score_file, f'Phoneme Overlap Score: {phoneme_overlap_score:.4f}')
+
+# Visualize word and phoneme frequency
+plot_top_items(amharic_freq, "Top Amharic Words", "blue")
+plot_top_items(tigrigna_freq, "Top Tigrigna Words", "green")
+plot_top_items(amharic_phoneme_dist, "Top Amharic Phonemes", "purple")
+plot_top_items(tigrigna_phoneme_dist, "Top Tigrigna Phonemes", "orange")
+
+# Visualize similarity scores
+plot_overlap_scores(word_overlap_score, phoneme_overlap_score)
