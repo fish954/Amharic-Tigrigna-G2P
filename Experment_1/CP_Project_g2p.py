@@ -105,7 +105,7 @@ def phoneme_overlap(dist1: Counter, dist2: Counter):
     return len(common_phonemes) / len(total_phonemes)
 
 # === File paths ===
-assets_dir = r'CP_Project\Experment_1\assets'
+assets_dir = os.path.join(os.path.dirname(__file__), 'assets')
 
 amharic_file_path = os.path.join(assets_dir, 'amharic1.txt')
 tigrinya_file_path = os.path.join(assets_dir, 'tigrinya1.txt')
