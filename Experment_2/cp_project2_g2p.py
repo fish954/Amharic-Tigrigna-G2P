@@ -48,6 +48,7 @@ g2p_mapping = {
     "ዂ":"KWu", "ዅ": "KWi", "ዃ":"KWa", "ዄ":"KWE", "ዏ":"wWa", "ዟ":"zWa", "ዧ":"ZWa", "ዯ":"yWa",
     "ዷ":"dWa", "ዿ":"DWa", "ጇ":"jWa", "ጐ":"gWe", "ጕ":"gWu", "ጒ":"gWi", "ጓ":"gWa", "ጔ":"gWE", "ጏ":"gW",
     "ጧ":"TWa", "ጯ":"CWa", "ጷ":"PWa", "ጿ":"SWa", "ፏ":"fWa", "ፗ":"pWa", "ፇ":"'SWa", " ":" ", "\n":"\n"
+}
 
     # Reads text from file
 def read_text_from_file(file_path):
