@@ -145,7 +145,7 @@ def plot_overlap_scores(word_score, phoneme_score):
     plt.tight_layout()
     plt.show()
     
-# === Main processing ===
+# === Main processing  ===
 amharic_text = read_text_from_file(amharic_file_path)
 tigrigna_text = read_text_from_file(tigrinya_file_path)
 
@@ -163,7 +163,7 @@ amharic_phoneme_dist = phoneme_distribution(amharic_phonemes)
 tigrigna_phoneme_dist = phoneme_distribution(tigrigna_phonemes)
 phoneme_overlap_score = phoneme_overlap(amharic_phoneme_dist, tigrigna_phoneme_dist)
 
-# === Output ===
+# === output ===
 print("Amharic Word Frequency:", amharic_freq)
 write_output_to_file(amharic_freq_file, counter_to_string(amharic_freq))
 
